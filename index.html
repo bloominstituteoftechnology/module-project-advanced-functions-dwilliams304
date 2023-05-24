@@ -91,8 +91,18 @@
     // ❗ Notes:
     // 🧠 Solve this challenge using the forEach method of the learners array.
     // 🧠 You will need to declare a result array into which you push learners from inside your forEach loop.
-    const getJavaScriptLoversForEach = () => {
-
+    const getJavaScriptLoversForEach = (learners) => {
+      const result = [];
+      let addToArray = learners.forEach(learner => {
+        if(learner.lovesJS === true || learner.lovesJS === 1){
+          result.push(learner);
+        }
+      })
+      if(result.length === 0){
+        return 'no JS lovers here!';
+      }
+      return result;
+      
     }
 
     // 👉 CHALLENGE 6
@@ -100,8 +110,10 @@
     // 🧠 It should work exactly the same as the getJavaScriptLoversForEach function above.
     // ❗ Notes:
     // 🧠 Solve this challenge using the filter method of the learners array.
-    const getJavaScriptLoversFilter = () => {
-
+    const getJavaScriptLoversFilter = (learners) => {
+      let modify = learners.filter(learner => (learner.lovesJS === true || learner.lovesJS === 1))
+      if(modify.length === 0){ return 'no JS lovers here!';}
+      return modify;
     }
 
     // 👉 CHALLENGE 7
@@ -135,10 +147,13 @@
       if(ints.length === 0){
         return 'pass some arguments, yo!';
       }
-      let toString = ints.map(int => {
-        if(int % 2 === 0){
+      let modify = ints.map(int => {
+        if(ints[int] % 2 === 0){
           ints[int] = 'even';
-        }else{ints[int] = 'odd';}
+        }
+        else if(ints[int] % 2 !== 0){
+          ints[int] = 'odd';
+        }
       })
       return ints;
     }
